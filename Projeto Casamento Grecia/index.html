@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casamento Aira & Paulo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Banner -->
+    <div class="banner animar">
+        <h1 class="titulo-principal">O nosso sim</h1>
+        <span class="nomes">Áira & Paulo</span>
+        <span class="data-casamento">09/08/26</span>
+        <img class="banner-img" src="img.jpeg" alt="Casal Aira e Paulo">
+    </div>
+
+    <!-- Nossa História -->
+    <div class="nossa-historia animar">
+        <h2 class="titulo-romantico">Nossa História</h2>
+
+        <p>
+            Nossa história começou à distância, mas nunca esteve distante do amor.
+            Áira no Brasil, Paulo na Espanha — e mesmo com quilômetros entre nós,
+            nossos corações sempre caminharam na mesma direção.
+        </p>
+
+        <p>
+            Entre planos, reencontros e saudades, descobrimos que o que sentimos só crescia.
+            Agora, iniciamos o capítulo mais esperado da nossa história: a vida lado a lado.
+        </p>
+    </div>
+
+    <!-- Container Principal -->
+    <div class="container animar">
+
+        <h2>Confirme sua presença</h2>
+
+        <input type="text" id="nome" placeholder="Digite seu nome">
+        <div class="autocomplete-suggestions" id="suggestions"></div>
+
+        <button onclick="confirmarPresenca()">Confirmar Presença</button>
+        <p id="msg"></p>
+
+        <h2 class="titulo-romantico">Lista de Presentes</h2>
+
+        <div class="presentes">
+
+            <div class="presente">
+                <img class="gift-img" src="convidado-favorito.jpeg">
+                <h3>Seja nosso convidado favorito</h3>
+                <p>R$ 760,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="presente.jpeg">
+                <h3>Só para dizer que não dei nada</h3>
+                <p>R$ 60,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="alexa.jpeg">
+                <h3>Alexa, para a noiva não mandar só no noivo</h3>
+                <p>R$ 410,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="rolo-de-macarrao.jpeg">
+                <h3>Rolo de macarrão para a noiva bater na cabeça do noivo</h3>
+                <p>R$ 160,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="vinho-para-os-noivos.jpeg">
+                <h3>Vinho para os noivos</h3>
+                <p>R$ 250,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="cueca-vasco.jpeg">
+                <h3>Cueca do Vasco para o noivo arrasar na lua de mel</h3>
+                <p>R$ 150,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="espirro-na-europa.jpeg">
+                <h3>Espirro na Europa</h3>
+                <p>R$ 350,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="cartao.jpeg">
+                <h3>Ajude a pagar o cartão</h3>
+                <p>R$ 300,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="capacete-para-noivo.jpeg">
+                <h3>Capacete para o noivo se proteger do rolo de macarrão</h3>
+                <p>R$ 180,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="ajuda-para-noiva.jpeg">
+                <h3>Ajuda para a noiva não ficar nervosa no dia da cerimônia</h3>
+                <p>R$ 220,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="lencol-luan-santana.jpeg">
+                <h3>Lençol do Luan Santana</h3>
+                <p>R$ 120,00</p>
+                <button>Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="manual-de-instrucoes.jpeg">
+                <h3>Manual de instruções de como cuidar do futuro bebê</h3>
+                <p>R$ 370,00</p>
+                <button>Presentear</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Versículo -->
+    <div class="versiculo animar">
+        <h2 class="titulo-romantico">Eclesiastes 4:9-12</h2>
+        <p class="texto-versiculo">
+            “Melhor é serem dois do que um, porque têm melhor paga do seu trabalho.
+            Porque se um cair, o outro levanta o seu companheiro;
+            mas ai do que estiver só; pois, caindo, não haverá outro que o levante.
+            O cordão de três dobras não se quebra com facilidade.”
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
