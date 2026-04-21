@@ -289,8 +289,8 @@ function fecharPix() {
 }
 
 function copiarPix() {
-    const pix = document.getElementById("pixKey");
-    pix.select();
+    let copyText = document.getElementById("pixKey");
+    copyText.select();
     document.execCommand("copy");
     alert("Chave PIX copiada!");
 }
