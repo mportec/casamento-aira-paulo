@@ -1,5 +1,7 @@
+let confirmados = JSON.parse(localStorage.getItem("confirmados")) || [];
 // Lista convidados (remove duplicados automaticamente)
 const convidados = [...new Set([
+    "Áira",
     "Anselmo",
     "Miralda",
     "Adriele",
@@ -17,10 +19,11 @@ const convidados = [...new Set([
     "Thayse",
     "Nicolle",
     "Bismarc",
+    "Nicolas",
     "Nilmaria",
     "Henrique",
-    "Eva",
-    "Liz",
+    "Eva Moreira",
+    "Liz Moreira",
     "Lorena",
     "Lorrany",
     "Aline",
@@ -30,20 +33,18 @@ const convidados = [...new Set([
     "Angela",
     "Wallas",
     "Gustavo",
-    "Cris",
+    "Crislane",
     "Anita",
     "Roberto",
     "Rebeca",
-    "Carlos",
+    "Carlos Henrique",
     "Luan",
     "Arielle",
     "Iago",
     "Crisiele",
     "Marcos",
     "Alice",
-    "Cleide",
-    "Anna Laura",
-    "Lita",
+    "José Lita",
     "Marcia",
     "Celso",
     "Breno",
@@ -63,13 +64,13 @@ const convidados = [...new Set([
     "Eloa",
     "Hilda",
     "Juliane",
-    "Marines",
-    "Theo",
+    "Marinez",
+    "Theo Santos",
     "Davy",
     "Evelly",
     "Diana",
     "Victor",
-    "Ana",
+    "Joans",
     "Lucia",
     "Indiana",
     "Isaac",
@@ -77,17 +78,22 @@ const convidados = [...new Set([
     "Melina",
     "Luis Alberto",
     "Kennedy",
-    "Agnaldo",
-    "Alana",
-    "Lorenzo",
     "Ruan",
     "Hadassya",
-    "André"
+    "André de Jesus",
+    "Alan",
+    "Mirian",
+    "Thaís",
+    "Eva Burgarelli",
+    "Theo Burgarelli",
+    "Joaquim",
 ])];
 
 const nomeInput = document.getElementById("nome");
 const suggestionsBox = document.getElementById("suggestions");
 const msg = document.getElementById("msg");
+
+const btnConfirmar = document.getElementById("btnConfirmar");
 
 let indiceSelecionado = -1;
 
@@ -119,6 +125,50 @@ nomeInput.addEventListener("input", () => {
     });
 
     suggestionsBox.style.display = filtrados.length ? "block" : "none";
+
+    nomeInput.addEventListener("input", () => {
+    const texto = nomeInput.value.toLowerCase();
+    suggestionsBox.innerHTML = "";
+    indiceSelecionado = -1;
+
+    if (!texto) {
+        suggestionsBox.style.display = "none";
+        return;
+    }
+
+    const filtrados = convidados.filter(n =>
+        n.toLowerCase().includes(texto)
+    );
+
+    filtrados.forEach((nome) => {
+        const div = document.createElement("div");
+        div.textContent = nome;
+
+        div.addEventListener("click", () => {
+            nomeInput.value = nome;
+            suggestionsBox.style.display = "none";
+        });
+
+        suggestionsBox.appendChild(div);
+    });
+
+    suggestionsBox.style.display = filtrados.length ? "block" : "none";
+
+    // 👇 AQUI É O PASSO 3
+    const nomeDigitado = nomeInput.value.trim().toLowerCase();
+
+    if (confirmados.includes(nomeDigitado)) {
+        btnConfirmar.disabled = true;
+        btnConfirmar.style.opacity = "0.5";
+        msg.style.color = "orange";
+        msg.textContent = "⚠️ Você já confirmou presença!";
+    } else {
+        btnConfirmar.disabled = false;
+        btnConfirmar.style.opacity = "1";
+    }
+
+});
+
 });
 
 // ================= NAVEGAÇÃO COM SETAS =================
@@ -153,22 +203,49 @@ nomeInput.addEventListener("keydown", (e) => {
 
 // ================= CONFIRMAR PRESENÇA =================
 function confirmarPresenca() {
+
     const nomeDigitado = nomeInput.value.trim().toLowerCase();
 
-    const encontrado = convidados.find(n =>
-        n.toLowerCase() === nomeDigitado
-    );
-
-    if (!encontrado) {
+    if (!nomeDigitado) {
         msg.style.color = "red";
-        msg.textContent = "❌ Nome não encontrado na lista.";
+        msg.textContent = "Digite seu nome!";
         return;
     }
 
-    msg.style.color = "green";
-    msg.textContent = `✔ Presença confirmada! Obrigada, ${encontrado} 💛`;
+    // 🔎 Verifica se está na lista
+    const encontrado = convidados.find(n => n.toLowerCase() === nomeDigitado);
 
-    suggestionsBox.style.display = "none";
+    if (!encontrado) {
+        msg.style.color = "red";
+        msg.textContent = "❌ Nome não está na lista de convidados.";
+        return;
+    }
+
+    // 🔁 Verifica duplicado (já confirmou)
+    if (confirmados.includes(nomeDigitado)) {
+        msg.style.color = "orange";
+        msg.textContent = "⚠️ Você já confirmou presença!";
+        return;
+    }
+
+    // 💾 Salva localmente
+    confirmados.push(encontrado.toLowerCase());
+
+    //Aqui é pra salvar no navegado
+    localStorage.setItem("confirmados", JSON.stringify(confirmados));
+
+    // 🚀 Envia para o Google Forms
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLScVMSVonImKpisnlpBuXpynkh-MDCBoOHYIATJn58SZ28t8AA/formResponse?entry.975099360=" 
+    + encodeURIComponent(encontrado);
+
+    fetch(url, {
+        method: "POST",
+        mode: "no-cors"
+    });
+
+    msg.style.color = "green";
+    msg.textContent = `✔ Presença confirmada! Obrigado, ${encontrado} 💛`;
+
     nomeInput.value = "";
 }
 
@@ -202,3 +279,18 @@ document.addEventListener("DOMContentLoaded", function () {
     elementos.forEach(el => observer.observe(el));
 
 });
+
+function abrirPix() {
+    document.getElementById("pixModal").style.display = "flex";
+}
+
+function fecharPix() {
+    document.getElementById("pixModal").style.display = "none";
+}
+
+function copiarPix() {
+    const pix = document.getElementById("pixKey");
+    pix.select();
+    document.execCommand("copy");
+    alert("Chave PIX copiada!");
+}
