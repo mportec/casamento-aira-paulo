@@ -45,7 +45,7 @@
         <input type="text" id="nome" placeholder="Digite seu nome">
         <div class="autocomplete-suggestions" id="suggestions"></div>
 
-        <button onclick="confirmarPresenca()">Confirmar Presença</button>
+        <button id="btnConfirmar" onclick="confirmarPresenca()">Confirmar Presença</button>
         <p id="msg"></p>
 
         <h2 class="titulo-romantico">Lista de Presentes</h2>
@@ -56,84 +56,84 @@
                 <img class="gift-img" src="convidado-favorito.jpeg" alt="gift">
                 <h3>Seja nosso convidado favorito</h3>
                 <p>R$ 760,00</p>
-                <button>Presentear</button>
+                <button onclick="abrirPix()">Presentear</button>
             </div>
 
             <div class="presente">
                 <img class="gift-img" src="presente.jpeg">
                 <h3>Só para dizer que não dei nada</h3>
                 <p>R$ 60,00</p>
-                <button>Presentear</button>
+                <button onclick="abrirPix()">Presentear</button>
             </div>
 
             <div class="presente">
                 <img class="gift-img" src="alexa.jpeg">
                 <h3>Alexa, para a noiva não mandar só no noivo</h3>
                 <p>R$ 410,00</p>
-                <button>Presentear</button>
+                <button onclick="abrirPix()">Presentear</button>
             </div>
 
             <div class="presente">
                 <img class="gift-img" src="rolo-de-macarrao.jpeg">
                 <h3>Rolo de macarrão para a noiva bater na cabeça do noivo</h3>
                 <p>R$ 160,00</p>
-                <button>Presentear</button>
-            </div>
-
-            <div class="presente">
-                <img class="gift-img" src="vinho-para-os-noivos.jpeg">
-                <h3>Vinho para os noivos</h3>
-                <p>R$ 250,00</p>
-                <button>Presentear</button>
-            </div>
-
-            <div class="presente">
-                <img class="gift-img" src="cueca-vasco.jpeg">
-                <h3>Cueca do Vasco para o noivo arrasar na lua de mel</h3>
-                <p>R$ 150,00</p>
-                <button>Presentear</button>
-            </div>
-
-            <div class="presente">
-                <img class="gift-img" src="espirro-na-europa.jpeg">
-                <h3>Espirro na Europa</h3>
-                <p>R$ 350,00</p>
-                <button>Presentear</button>
-            </div>
-
-            <div class="presente">
-                <img class="gift-img" src="cartao.jpeg">
-                <h3>Ajude a pagar o cartão</h3>
-                <p>R$ 300,00</p>
-                <button>Presentear</button>
+                <button onclick="abrirPix()">Presentear</button>
             </div>
 
             <div class="presente">
                 <img class="gift-img" src="capacete-para-noivo.jpeg">
                 <h3>Capacete para o noivo se proteger do rolo de macarrão</h3>
                 <p>R$ 180,00</p>
-                <button>Presentear</button>
+                <button onclick="abrirPix()">Presentear</button>
             </div>
 
+            <div class="presente">
+                <img class="gift-img" src="cueca-vasco.jpeg">
+                <h3>Cueca do Vasco para o noivo arrasar na lua de mel</h3>
+                <p>R$ 150,00</p>
+                <button onclick="abrirPix()">Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="espirro-na-europa.jpeg">
+                <h3>Espirro na Europa</h3>
+                <p>R$ 350,00</p>
+                <button onclick="abrirPix()">Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="cartao.jpeg">
+                <h3>Ajude a pagar o cartão</h3>
+                <p>R$ 300,00</p>
+                <button onclick="abrirPix()">Presentear</button>
+            </div>
+
+            <div class="presente">
+                <img class="gift-img" src="vinho-para-os-noivos.jpeg">
+                <h3>Vinho para os noivos</h3>
+                <p>R$ 250,00</p>
+                <button onclick="abrirPix()">Presentear</button>
+            </div>
+            
             <div class="presente">
                 <img class="gift-img" src="ajuda-para-noiva.jpeg">
                 <h3>Ajuda para a noiva não ficar nervosa no dia da cerimônia</h3>
                 <p>R$ 220,00</p>
-                <button>Presentear</button>
+                <button onclick="abrirPix()">Presentear</button>
             </div>
 
             <div class="presente">
                 <img class="gift-img" src="lencol-luan-santana.jpeg">
                 <h3>Lençol do Luan Santana</h3>
                 <p>R$ 120,00</p>
-                <button>Presentear</button>
+                <button onclick="abrirPix()">Presentear</button>
             </div>
 
             <div class="presente">
                 <img class="gift-img" src="manual-de-instrucoes.jpeg">
                 <h3>Manual de instruções de como cuidar do futuro bebê</h3>
                 <p>R$ 370,00</p>
-                <button>Presentear</button>
+                <button onclick="abrirPix()">Presentear</button>
             </div>
 
         </div>
@@ -141,16 +141,28 @@
 
     <!-- Versículo -->
     <div class="versiculo animar">
-        <h2 class="titulo-romantico">Eclesiastes 4:9-12</h2>
+        <h2 class="titulo-romantico">Coríntios 13:13</h2>
         <p class="texto-versiculo">
-            “Melhor é serem dois do que um, porque têm melhor paga do seu trabalho.
-            Porque se um cair, o outro levanta o seu companheiro;
-            mas ai do que estiver só; pois, caindo, não haverá outro que o levante.
-            O cordão de três dobras não se quebra com facilidade.”
+            “Assim, permanecem agora estes três: a fé, a esperança e o amor. O maior destes, porém, é o amor.”
         </p>
     </div>
 
     <script src="script.js"></script>
+
+
+
+
+
+<!--PARTE DO PIX-->
+<div id="pixModal" class="pix-modal">
+    <div class="pix-box">
+        <h3>💛 Presente via PIX</h3>
+        <p>Chave PIX:</p>
+        <input type="text" id="pixKey" value="00020126430014BR.GOV.BCB.PIX0121airagrecia5@gmail.com5204000053039865802BR5925Aira Grecia Almeida Palme6009SAO PAULO62140510AitfdTMz0M6304D41D" readonly>
+        <button onclick="copiarPix()">Copiar chave</button>
+        <button onclick="fecharPix()">Fechar</button>
+    </div>
+</div>
 
 </body>
 </html>
