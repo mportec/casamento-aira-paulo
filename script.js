@@ -87,6 +87,7 @@ const convidados = [...new Set([
     "Eva Burgarelli",
     "Theo Burgarelli",
     "Joaquim",
+    "Pedro"
 ])];
 
 const nomeInput = document.getElementById("nome");
@@ -154,7 +155,7 @@ nomeInput.addEventListener("input", () => {
 
     suggestionsBox.style.display = filtrados.length ? "block" : "none";
 
-    // 👇 AQUI É O PASSO 3
+    // 
     const nomeDigitado = nomeInput.value.trim().toLowerCase();
 
     if (confirmados.includes(nomeDigitado)) {
@@ -280,8 +281,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-function abrirPix() {
-    document.getElementById("pixModal").style.display = "flex";
+function abrirPix(link) {
+    window.open(link, "_blank");
 }
 
 function fecharPix() {
