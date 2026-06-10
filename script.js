@@ -8,7 +8,7 @@ const convidados = [...new Set([
     "Yvan",
     "Yane",
     "Yana Helena",
-    "Mileide",
+    "Mileide Almeida",
     "Miralva",
     "Lucileide",
     "Geovan",
@@ -24,7 +24,10 @@ const convidados = [...new Set([
     "Henrique",
     "Eva Moreira",
     "Liz Moreira",
-    "Lorena",
+    "Lorena Roldi",
+    "Lorenna dos Santos",
+    "Lorena Farias",
+    "Luiz Miguel",
     "Lorrany",
     "Aline",
     "Iara",
@@ -61,7 +64,8 @@ const convidados = [...new Set([
     "Joyce",
     "Arthur",
     "Maria Helena",
-    "Eloísa",
+    "Eloisa",
+    "Eloiza Oliveira",
     "Hilda",
     "Juliane",
     "Marinez",
@@ -98,7 +102,9 @@ const convidados = [...new Set([
     "André Silva",
     "Mileide Santos",
     "Anna Alice",
-    "Geny"
+    "Geny",
+    "Suzinho",
+    "Maria Elisa"
 ])];
 
 const nomeInput = document.getElementById("nome");
