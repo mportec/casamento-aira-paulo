@@ -92,8 +92,6 @@ const convidados = [...new Set([
     "Theo Burgarelli",
     "Joaquim",
     "Pedro",
-    "João Silveira",
-    "Sandyla",
     "Silas Mateus",
     "Laryssa",
     "Elias",
