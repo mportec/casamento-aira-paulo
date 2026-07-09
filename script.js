@@ -111,7 +111,8 @@ const convidados = [...new Set([
     "Maria Laura Matos Silva",
     "Cleide",
     "Gilvânia",
-    "Nubia"
+    "Nubia",
+    "Valéria Gomes"
 ])];
 
 const nomeInput = document.getElementById("nome");
